@@ -30,11 +30,18 @@ board_codename := $(word 2,$(split_board))
 # Exynos
 ifeq ($(SOC),exynos8895)
 brand_name=exynos
+else ifeq ($(SOC),exynos9810)
+brand_name=exynos
 endif
 
 # Apple
 ifeq ($(SOC),t7000)
 brand_name=apple
+endif
+
+# Generic
+ifeq ($(SOC),generic)
+brand_name=generic
 endif
 
 all: $(brand_name)/$(SOC).o copy-soc
